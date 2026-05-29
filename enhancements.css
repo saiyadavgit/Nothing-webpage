@@ -1,0 +1,101 @@
+* { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
+
+/* ── Smooth cursor for magnetic targets ── */
+.mid h1,
+.foottext-wrap,
+.cross,
+.right,
+.magnetic {
+  will-change: transform;
+  cursor: none;
+}
+
+
+.stat-item:hover .stat-num {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  transition: text-shadow 0.5s ease;
+}
+
+.glyph-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.marquee-section,
+.marquee-section-2 {
+  position: relative;
+  z-index: 3;
+}
+
+.product-imgs img,
+.contentimg,
+.slideimg,
+.videodiv video {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.para-effect span {
+  display: inline;
+}
+
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+@keyframes glyphPulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(255,255,255,0.15)); }
+  50%       { filter: drop-shadow(0 0 20px rgba(255,255,255,0.35)); }
+}
+.glyph-svg {
+  animation: glyphPulse 4s ease-in-out infinite;
+}
+
+
+.team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: rgba(255,255,255,0.15);
+  font-family: orbitron, sans-serif;
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  letter-spacing: 0.4em;
+}
+.team::after {
+  content: "TEAM — COMING SOON";
+}
+
+.stat-item {
+  transition: border-color 0.4s ease;
+}
+.stat-item:hover {
+  border-top-color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 480px) {
+  .glyph-svg {
+    width: 70vw;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem 1.5rem !important;
+  }
+}
